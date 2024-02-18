@@ -114,9 +114,12 @@ class MainWindow:
 
     def place_list(self, event):
 
+        try:
+            i = self.country_listbox.curselection()
+            self.selected_country = self.country_listbox.get(i)
 
-        i = self.country_listbox.curselection()
-        self.selected_country = self.country_listbox.get(i)
+        except:
+            pass
 
         self.place_listbox.delete(0, tk.END)
 
@@ -135,9 +138,13 @@ class MainWindow:
 
 
     def on_select(self, event):
+        try:
         
-        i = self.place_listbox.curselection()
-        self.selected_place = self.place_listbox.get(i)
+            i = self.place_listbox.curselection()
+            self.selected_place = self.place_listbox.get(i)
+
+        except:
+            pass
 
 
 
