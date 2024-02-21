@@ -46,6 +46,29 @@ class MainWindow:
 
         self.listboxes()
 
+        self.menu_app()
+
+
+    def exit_app(self):
+        exit()
+
+
+    def about_app(self):
+        tkinter.messagebox.showinfo("About", 'This is a custom-made app to save and view Bucketlist places')
+
+
+    def menu_app(self):
+        menu = tk.Menu(self.window)
+        self.window.config(menu=menu)
+
+        subm1 = tk.Menu(menu)
+        menu.add_cascade(label="File", menu=subm1)
+        subm1.add_command(label="Exit", command=self.exit_app)
+
+        subm2 = tk.Menu(menu)
+        menu.add_cascade(label="Option", menu=subm2)
+        subm2.add_command(label="About", command=self.about_app)
+
 
     def listboxes(self):
         self.country_listbox = tk.Listbox(self.window)
@@ -172,6 +195,8 @@ class MainWindow:
         self.place_listbox.delete(0, tk.END)
         for item in sorted(self.data[self.selected_country]):
             self.place_listbox.insert(tk.END, item)
+
+
 
 
 
